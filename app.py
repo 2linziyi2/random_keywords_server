@@ -9,8 +9,10 @@ def all_file_names():
 
 @app.route("/keywords", methods=['GET'])
 def get_keywords():
-    number = request.args.get('number', 3)
-    print(number)
+    try:
+      number = int(request.args.get('number', 3))
+    except:
+      number = 3
+      
     keywords = keywords_tools.getKeywords(number)
-    print(keywords)
     return ",".join(keywords)

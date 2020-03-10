@@ -115,9 +115,10 @@ def getAllFilesPath():
 def getKeywords(number, files, ignore_keywords):
     fin = getAllFilesPath()
     fin = list(filter(lambda item: item in files, fin))
-
+    
     data = []
-    while len(data) >= number:
+
+    while len(data) < number:
         fileIndex = random.randint(1,len(fin)) - 1
         content = getFileConTent(fin[fileIndex])
 
@@ -132,3 +133,4 @@ def getKeywords(number, files, ignore_keywords):
 def getScelNames():
     fin = getAllFilesPath()
     return list(map(lambda item: getBasicFileInfo(item), fin))
+
